@@ -10,12 +10,12 @@ $(document).ready(function () {
 
     // Refs
     var apiMusic = 'https://flynn.boolean.careers/exercises/api/array/music';
-    var cd = $('.cd');
+    var cd = $('.cds-container');
 
     // Init Handlebars
     var source = $('#album-template').html();
     var template = Handlebars.compile(source);
-    
+
     $.ajax({
         url: apiMusic,
         method: 'GET',
