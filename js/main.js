@@ -22,20 +22,31 @@ $(document).ready(function () {
         success: function (data) {
             var albums = data.response;
             for (var i = 0; i < albums.length; i++) {
-              var item = template(albums[i]);
+                var item = template(albums[i]);
                 console.log(item);
-               cd.append(item);
+                cd.append(item);
             }
-           
+
         },
         error: function () {
             console.log('Si è verificato un errore');
         }
     });
 
-});
+    /**
+     * Bonus: Creare una select con i seguenti generi: pop, rock, metal e jazz.
+    In base a cosa scegliamo nella select vedremo i corrispondenti cd.
+    */
+    $("#genres").change(function () {
+        console.log("Changed in", $(this).val());
+        var genre = $(this).val();
+        if (genre === "all") {
+            $(".cd").show();
+        } else {
+            $(".cd").hide();
+            $(".cd." + genre).show();
+        }
 
-/**
- * Bonus: Creare una select con i seguenti generi: pop, rock, metal e jazz.
-In base a cosa scegliamo nella select vedremo i corrispondenti cd.
-*/
+    });
+
+});
